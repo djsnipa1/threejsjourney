@@ -7,6 +7,9 @@ mkShell {
   nativeBuildInputs = [
     direnv
     neovim
+    lf
+    lazygit
+    git-ignore
     nodejs-18_x
       nodePackages.pnpm
   ];
