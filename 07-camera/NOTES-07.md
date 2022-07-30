@@ -1,5 +1,0 @@
-# Animations
-
-## `three.Clock()`
-
-## GSAP

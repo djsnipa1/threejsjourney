@@ -8,9 +8,49 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Sizes
 const sizes = {
-  width: 750 / 2,
-  height: 1334 / 2
+  width: window.innerWidth,
+  height: window.innerHeight
 }
+
+window.addEventListener('resize', () => {
+  //update sizes
+  sizes.width = window.innerWidth
+  sizes.height = window.innerHeight
+
+  // update camera
+  camera.aspect = sizes.width / sizes.height
+  camera.updateProjectionMatrix()
+
+  // update renderer
+  renderer.setSize(sizes.width, sizes.height)
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+})
+
+
+/**
+ * Fullscreen
+ */
+window.addEventListener('dblclick', () => {
+  const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
+
+  if (!fullscreenElement) {
+    if (canvas.requestFullscreen) {
+      canvas.requestFullscreen()
+    }
+    else if (canvas.webkitRequestFullscreen) {
+      canvas.webkitRequestFullscreen()
+    }
+  }
+  else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    }
+    else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen()
+    }
+  }
+})
+
 
 // Cursor
 const cursor = {
@@ -27,13 +67,13 @@ const scene = new THREE.Scene()
 
 // Object
 const cubeGeometry = new THREE.BoxGeometry(.5, .5, .5)
-const cubeMaterial = new THREE.WireframeGeometry(cubeGeometry)
-const line = new THREE.LineSegments(cubeMaterial)
-// const cubeMaterial = new THREE.MeshBasicMaterial({
-//   color: '#ff0000'
-// })
+// const cubeMaterial = new THREE.WireframeGeometry(cubeGeometry)
+// const line = new THREE.LineSegments(cubeMaterial)
+const cubeMaterial = new THREE.MeshBasicMaterial({
+  color: '#ff0000'
+})
 const mesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
-scene.add(mesh, line)
+scene.add(mesh)
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
@@ -48,6 +88,7 @@ const renderer = new THREE.WebGLRenderer({
   canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
+
 
 // Clock
 const clock = new THREE.Clock()
