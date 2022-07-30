@@ -8,15 +8,25 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Sizes
 const sizes = {
-  width: 800,
-  height: 600
+  width: 750 / 2,
+  height: 1334 / 2
 }
 
+// Cursor
+const cursor = {
+  x: 0,
+  y: 0
+}
+
+window.addEventListener("mousemove", (event) => {
+  cursor.x = event.clientX / sizes.width
+
+})
 // Scene
 const scene = new THREE.Scene()
 
 // Object
-const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
+const cubeGeometry = new THREE.BoxGeometry(.5, .5, .5)
 const cubeMaterial = new THREE.MeshBasicMaterial({
   color: '#ff0000'
 })
@@ -38,9 +48,8 @@ renderer.setSize(sizes.width, sizes.height)
 // const clock = new THREE.Clock()
 
 // gsap
-console.log(gsap)
-gsap.to(mesh.position, { duration: 3, delay: 1, x: 2 })
-gsap.to(mesh.position, { duration: 1, delay: 3, x: -2 })
+// gsap.to(mesh.position, { duration: 3, delay: 1, x: 2 })
+// gsap.to(mesh.position, { duration: 1, delay: 3, x: -2 })
 
 // Animations
 const tick = () => {
@@ -53,6 +62,9 @@ const tick = () => {
   // camera.lookAt(mesh.position)
 
   // mesh.rotation.x += 0.5
+
+  // Cursor
+  camera.position.x = cursor.x * 3
 
   // Render
   renderer.render(scene, camera)
