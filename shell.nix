@@ -8,8 +8,10 @@ mkShell {
     direnv
     neovim
     lf
+    bat
     lazygit
     git-ignore
+    fish
     nodejs-18_x
       nodePackages.pnpm
   ];
