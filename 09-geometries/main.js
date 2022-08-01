@@ -66,11 +66,11 @@ window.addEventListener("mousemove", (event) => {
 const scene = new THREE.Scene()
 
 // Object
-const cubeGeometry = new THREE.BoxGeometry(.5, .5, .5)
+const cubeGeometry = new THREE.BoxBufferGeometry(.5, .5, .5, 2, 2, 2)
 // const cubeMaterial = new THREE.WireframeGeometry(cubeGeometry)
 // const line = new THREE.LineSegments(cubeMaterial)
 const cubeMaterial = new THREE.MeshBasicMaterial({
-  color: '#ff0000'
+  color: '#ff0000', wireframe: true
 })
 const mesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
 scene.add(mesh)
