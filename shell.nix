@@ -8,6 +8,7 @@ mkShell {
     direnv
     neovim
     lf
+    gh
     bat
     lazygit
     git-ignore
