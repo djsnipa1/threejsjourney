@@ -12,6 +12,8 @@ mkShell {
     lazygit
     git-ignore
     fish
+    http-prompt
+    httpie
     nodejs-18_x
       nodePackages.pnpm
   ];
