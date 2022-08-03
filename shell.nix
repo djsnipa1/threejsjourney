@@ -11,10 +11,16 @@ mkShell {
     gh
     bat
     lazygit
+    figlet
+    toilet
+    lolcat
+    boxes
     git-ignore
     fish
     http-prompt
     httpie
+    fd
+    glances
     nodejs-18_x
       nodePackages.pnpm
   ];
