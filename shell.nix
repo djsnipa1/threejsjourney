@@ -21,6 +21,7 @@ mkShell {
     httpie
     fd
     glances
+    tree
     nodejs-18_x
       nodePackages.pnpm
   ];
