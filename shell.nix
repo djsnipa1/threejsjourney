@@ -22,6 +22,7 @@ mkShell {
     fd
     glances
     tree
+    delta
     nodejs-18_x
       nodePackages.pnpm
   ];
