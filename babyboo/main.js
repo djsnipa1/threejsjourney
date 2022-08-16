@@ -36,7 +36,15 @@ const scene = new THREE.Scene();
 /**********************************************************/
 const textureLoader = new THREE.TextureLoader();
 const matcapTexture = textureLoader.load("/textures/matcaps/7.png");
-// const matcapTexture = textureLoader.load("/textures/matcaps/.png");
+const matcapTextureOrange = textureLoader.load("/textures/matcaps/c01.png");
+
+
+/**********************************************************/
+/*                   M A T E R I A L S                    */
+/**********************************************************/
+const material2 = new THREE.MeshMatcapMaterial({
+  matcap: matcapTextureOrange
+})
 
 /**********************************************************/
 /*                       F O N T S                        */
@@ -44,17 +52,17 @@ const matcapTexture = textureLoader.load("/textures/matcaps/7.png");
 const fontLoader = new FontLoader();
 const font = fontLoader.load(
   // resource URL
-  "/fonts/helvetiker_bold.typeface.json",
+  "/fonts/balloon_party_regular.json",
   (font) => {
     const textGeometry = new TextGeometry("Happy Birthday\n   Baby Boo!", {
       font: font,
-      size: 0.5,
-      height: 0.2,
-      curveSegments: 9,
+      size: 1.5,
+      height: 0.5,
+      curveSegments: 7,
       bevelEnabled: true,
-      bevelThickness: 0.03,
-      bevelSize: 0.02,
-      bevelOffset: 0,
+      bevelThickness: 0.2,
+      bevelSize: 0.08,
+      bevelOffset: 0.,
       bevelSegments: 4,
     });
     textGeometry.center();
@@ -71,13 +79,13 @@ const font = fontLoader.load(
     const donutGeometry = new THREE.TorusBufferGeometry(0.3, 0.2, 20, 45);
 
 
-    for (let i = 0; i < 150; i++) {
-      const donut = new THREE.Mesh(donutGeometry, material
+    for (let i = 0; i < 250; i++) {
+      const donut = new THREE.Mesh(donutGeometry, material2
       );
 
-      donut.position.x = (Math.random() - 0.5) * 10;
-      donut.position.y = (Math.random() - 0.5) * 10;
-      donut.position.z = (Math.random() - 0.5) * 10;
+      donut.position.x = (Math.random() - 0.5) * 15;
+      donut.position.y = (Math.random() - 0.5) * 15;
+      donut.position.z = (Math.random() - 0.5) * 15;
 
       donut.rotation.x = Math.random() * Math.PI;
       donut.rotation.y = Math.random() * Math.PI;
@@ -91,7 +99,7 @@ const font = fontLoader.load(
     console.timeEnd("donuts");
   }
 );
-// textGeometry.center()
+
 
 /**********************************************************/
 /*                       S I Z E S                        */
@@ -125,10 +133,14 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.x = 1;
-camera.position.y = 1;
-camera.position.z = 2;
+camera.position.x = 0.3;
+camera.position.y = 0.6;
+camera.position.z = 6.6;
 scene.add(camera);
+
+// gui.add(camera.position, 'x', 0, 5, .1)
+// gui.add(camera.position, 'y', 0, 5, .1)
+// gui.add(camera.position, 'z', 0, 10, .1)
 
 // Controls
 const controls = new OrbitControls(camera, canvas);
