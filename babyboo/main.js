@@ -55,6 +55,7 @@ const font = fontLoader.load(
   "/fonts/balloon_party_regular.json",
   (font) => {
     const textGeometry = new TextGeometry("Happy Birthday\n   Baby Boo!", {
+    // const textGeometry = new TextGeometry(" ", {
       font: font,
       size: 1.5,
       height: 0.5,
@@ -97,6 +98,7 @@ const font = fontLoader.load(
     }
 
     console.timeEnd("donuts");
+    
   }
 );
 
@@ -166,7 +168,8 @@ const tick = () => {
   // Update controls
   controls.update();
 
-  // Render
+  
+    // Render
   renderer.render(scene, camera);
 
   // Call tick again on the next frame
