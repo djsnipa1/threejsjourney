@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import { ghPages } from "vite-plugin-gh-pages";
 
 export default defineConfig({
-    base: "https://threejsjourney-text-chad.vercel.app/",
+    base: "https://babyboo-birthday.vercel.app/",
     // plugins: [ghPages()],
 },
   // ghPages({
