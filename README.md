@@ -1,3 +1,48 @@
+# threejsjourney
+
+## Deploy
+
+### Login to Vercel
+
+`cd` into the project directory:
+
+```bash
+cd 13-text
+pnpx vercel login --github --oob
+```
+
+## Run Vercel Commands
+
+### Preview Deployment
+
+**npm script**
+```bash
+pnpm run deploy-preview
+```
+**command line**
+```
+pnpx vercel --token $VERCEL_TOKEN
+```
+
+### Deploy to Vercel
+
+**npm script**
+```bash
+pnpm run deploy
+```
+
+**command line**
+```bash
+pnpx vercel --prod --token $VERCEL_TOKEN
+```
+
+### Vercel Commands
+```bash
+pnpx vercel <command> --token $VERCEL_TOKEN
+```
+
+---
+
 # A Nix template on Gitpod
 
 This is a [nix](https://nixos.org/manual/nix/stable/) template configured for ephemeral nix based development environments on [Gitpod](https://www.gitpod.io/).

@@ -45,7 +45,7 @@ const font = fontLoader.load(
   // resource URL
   "/fonts/helvetiker_bold.typeface.json",
   (font) => {
-    const textGeometry = new TextGeometry("Baby\n    Boo", {
+    const textGeometry = new TextGeometry("Chad\n  Boyce", {
       font: font,
       size: 0.5,
       height: 0.2,
