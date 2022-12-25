@@ -38,6 +38,11 @@ const textureLoader = new THREE.TextureLoader();
 const matcapTexture = textureLoader.load("/textures/matcaps/7.png");
 
 /**********************************************************/
+/*                       H O U S E                        */
+/**********************************************************/
+const house = new THREE.Group()
+
+/**********************************************************/
 /*                       F O N T S                        */
 /**********************************************************/
 const fontLoader = new FontLoader();
